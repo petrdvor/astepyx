@@ -1,0 +1,471 @@
+meta
+    category
+        20
+    edition
+        1.10
+
+ast
+    010
+        title
+            Data Source Identification
+        format
+            fixed
+        length
+            2
+        elements
+            16 9 "System Area Code" "SAC"
+            8 1 "System Identification Code" "SIC"
+    020
+        title
+            Target Report Descriptor
+        format
+            variable
+        octets
+            elements
+                8 8 "Non-Mode S 1090MHz multilateration" "SSR"
+                7 7 "Mode-S 1090 MHz multilateration" "MS"
+                6 6 "HF multilateration" "HF"
+                5 5 "VDL Mode 4 multilateration" "VDL4"
+                4 4 "UAT multilateration" "UAT"
+                3 3 "DME/TACAN multilateration" "DME"
+                2 2 "Other Technology Multilateration" "OT"
+                1 1 "FX" "FX"
+            elements
+                8 8 "Report from field monitor" "RAB"
+                7 7 "Special Position Identification" "SPI"
+                6 6 "Chain 1/2" "CHN"
+                5 5 "Transponder Ground bit set" "GBS"
+                4 4 "Corrupted replies in multilateration" "CRT"
+                3 3 "Simulated target report" "SIM"
+                2 2 "Test Target" "TST"
+                1 1 "FX" "FX"
+            elements
+                8 7 "Target with 24-bit ICAO address" "CF"
+                6 2 "spare" "spare"
+                1 1 "FX" "FX"
+    030
+        title
+            Warning/Error Conditions
+        format
+            variable
+        length
+            1
+        octets
+            elements
+                8 2 "Warning/error condition value" "WEV"
+                1 1 "FX" "FX"
+    041
+        title
+             Position in WGS-84 Co-ordinates
+        format
+            fixed
+        length
+            8
+        elements
+            64 33 "Latitude WGS84" "Lat"
+                scale
+                    180/2**25
+                encode
+                    signed
+            32 1 "Longitude WGS84" "Lon"
+                scale
+                    180/2**25
+                encode
+                    signed
+    042
+        title
+            Position in Cartesian Coordinates
+        format
+            fixed
+        length
+            6
+        elements
+            48 25 "X" "X"
+                scale
+                    0.5
+                encode
+                    signed
+            24 1 "Y" "Y"
+                scale
+                    0.5
+                encode
+                    signed
+    050
+        title
+            Mode-2 Code in Octal Representation
+        format
+            fixed
+        length
+            2
+        elements
+            16 16 "Code validated" "V"
+            15 15 "Code garbled" "G"
+            14 14 "Code as derived/smoothed" "L"
+            13 13 "spare" "spare"
+            12 1 "Mode-2 reply in octal representation" "MD2"
+                encode
+                    octal
+    055
+        title
+            Mode-1 Code in Octal Representation
+        format
+            fixed
+        length
+            1
+        elements
+            8 8 "Code validated" "V"
+            7 7 "Code garbled" "G"
+            6 6 "Code as derived/smoothed" "L"
+            5 5 "A4" "A4"
+            4 4 "A2" "A2"
+            3 3 "A1" "A1"
+            2 2 "B2" "B2"
+            1 1 "B1" "B1"
+    050
+        title
+            Mode-3/A Code in Octal Representation
+        format
+            fixed
+        length
+            2
+        elements
+            16 16 "Code validated" "V"
+            15 15 "Code garbled" "G"
+            14 14 "Mode-3/A code not extracted" "L"
+            13 13 "spare" "spare"
+            12 1 "Mode-2 reply in octal representation" "M3A"
+                encode
+                    octal
+    090
+        title
+             Flight Level in Binary Representation
+        format
+            fixed
+        length
+            2
+        elements
+            16 16 "Code validated" "V"
+            15 15 "Code garbled" "G"
+            14 1 "Flight Level" "FL"
+                scale
+                    0.25
+    100
+        title
+            Mode-C Code
+        format
+            fixed
+        length
+            4
+        elements
+            32 32 "Code validated" "V"
+            31 31 "Code garbled" "G"
+            30 29 "spare" "spare"
+            28 17 "Mode-C reply in Gray notation" "MDCg"
+            16 13 "spare" "spare"
+            12 1 "Lo/High quality pulse Xi" "M3A"
+    105
+        title
+            Geometric Height (WGS-84)
+        format
+            fixed
+        length
+            2
+        elements
+            16 1 "Geometric Height" "GH"
+                scale
+                    6.25
+                encode
+                    signed
+    110
+        title
+            Measured Height (Local Cartesian Coordinates)
+        format
+            fixed
+        length
+            2
+        elements
+            16 1 "Measured Height" "MH"
+                scale
+                    6.25
+                encode
+                    signed
+    140
+        title
+             Time of Day
+        format
+            fixed
+        length
+            3
+        elements
+            24 1 "Time of Day" "ToD"
+                scale
+                    1/128
+    161
+        title
+            Track Number
+        format
+            fixed
+        length
+            2
+        elements
+            16 13 "spare" "spare"
+            12 1 "Track Number" "TN"
+    170
+        title
+            Track Status
+        format
+            variable
+        octets
+            elements
+                8 8 "Confirmed/Init track" "CNF"
+                7 7 "Last report for a track" "TRE"
+                6 6 "Coasted" "CST"
+                5 4 "Maintaining/Climbing/Descending" "CDM"
+                3 3 "Horizontal manoeuvre" "MAH"
+                2 2 "Measured/Smoothed position" "STH"
+                1 1 "FX" "FX"
+            elements
+                8 8 "Ghost track" "GHO"
+                7 2 "spare" "spare"
+                1 1 "FX" "FX"
+    202
+        title
+            Calculated Track Velocity in Cartesian Coordinates
+        format
+            fixed
+        length
+            4
+        elements
+            32 17 "Vx" "Vx"
+                scale
+                    0.25
+                encode
+                    signed
+            16 1 "Vy" "vy"
+                scale
+                    0.25
+                encode
+                    signed
+    210
+        title
+            Calculated Acceleration
+        format
+            fixed
+        length
+            2
+        elements
+            16 9 "Ax" "Ax"
+                scale
+                    0.25
+                encode
+                    signed
+            8 1 "Ay" "Ay"
+                scale
+                    0.25
+                encode
+                    signed
+    220
+        title
+            Target Address
+        format
+            fixed
+        length
+            3
+        elements
+            24 1 "Target Address" "ADR"
+    230
+        title
+            Communications/ACAS Capability and Flight Status
+        format
+            fixed
+        length
+            2
+        elements
+            16 14 "Communications capability" "COM"
+            13 11  "Flight Status" "STAT"
+            10 9 "spare" "spare"
+            8 8 "Mode-S Specific Service Capability" "MSSC"
+            7 7 "Altitude reporting capability" "ARC"
+            6 6 "Aircraft identification capability" "AIC"
+            5 5 "BDS 1,0 bit 16" "B1A"
+            4 1 "BDS 1,0 bits 37/40" "B1B"
+    245
+        title
+            Target Identification
+        format
+            fixed
+        length
+            7
+        elements
+            56 55 "STI" "STI"
+            54 49 "spare" "spare"
+            48 1 "Callsign" "CS"
+                encode
+                    6bitchar
+    250
+        title
+            BDS Register DATA
+        format
+            repetitive
+        length
+            8
+        elements
+            64 9 "BDSDATA" "BDS"
+            8 5 "BDS1" "BDS1"
+            4 1 "BDS2" "BDS2"
+    260
+        title
+            ACAS Resolution Advisory Report
+        format
+            fixed
+        length
+            7
+        elements
+            56 1 "MB Data from BDS 3.0" "RA"
+    300
+        title
+            Vehicle Fleet Identification
+        format
+            fixed
+        length
+            1
+        elements
+            8 1 "Vehicle Fleet Identification" "VFI"
+    310
+        title
+            Pre-programmed message
+        format
+            fixed
+        length
+            1
+        elements
+            8 8 "In Trouble" "TRB"
+            8 1 "Message towing/follow etc" "MSG"
+    400
+        title
+            Contributing Devices
+        format
+            repetitive
+        length
+            1
+        elements
+                8 1 "TUx/RUx Contribution" "TURU"
+    500
+        title
+            Position Accuracy
+        format
+            compound
+        subitems
+            DOP
+                title
+                    DOP of Position
+                format
+                    fixed
+                length
+                    6
+                elements
+                    48 33 "DOPx" "DOPx"
+                        scale
+                            0.25
+                    32 17 "DOPy" "DOPy"
+                        scale
+                            0.25
+                    16 1 "DOPxy" "DOPxy"
+                        scale
+                            0.25
+            SDP
+                title
+                    Standard Deviation of Position
+                format
+                    fixed
+                length
+                    6
+                elements
+                    48 33 "STDx" "STDx"
+                        scale
+                            0.25
+                    32 17 "STDy" "STDy"
+                        scale
+                            0.25
+                    16 1 "STDxy" "STDxy"
+                        scale
+                            0.25
+            SDH
+                title
+                    Standard Deviation of Geometric Height (WGS 84)
+                format
+                    fixed
+                length
+                    2
+                elements
+                    16 1 "Standard Deviation of Geometric Height" "STDGH"
+                        scale
+                            0.5
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            FX
+                title
+                    FX
+                format
+                    fixed
+
+
+uap
+    010
+    null
+    015
+    070
+    105
+    100
+    185
+    null
+    210
+    060
+    245
+    380
+    040
+    080
+    290
+    null
+    200
+    295
+    136
+    130
+    135
+    220
+    390
+    null
+    270
+    300
+    110
+    120
+    510
+    500
+    340
+    null
+    null
+    null
+    null
+    null
+    null
+    RE
+    SP
+    null

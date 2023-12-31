@@ -1,0 +1,525 @@
+meta
+    category
+        48
+    edition
+        1.31
+ast
+    010
+        title
+            Data Source Identification
+        format
+            fixed
+        length
+            2
+        elements
+            16 9 "System Area Code" "SAC"
+            8 1 "System Identification Code" "SIC"
+    020
+        title
+            Target Report Descriptor
+        format
+            variable
+        octets
+            elements
+                8 6 "Type of detection" "TYP"
+                5 5 "Simulated target report" "SIM"
+                4 4 "RDP Chain 1/2" "CHN"
+                3 3 "Special Position Identification" "SPI"
+                2 2 "Report from field monitor" "RAB"
+                1 1 "FX" "FX"
+            elements
+                8 8 "Test target report" "TST"
+                7 7 "Extended Range present" "ERR"
+                6 6 "X-Pulse present" "XPP"
+                5 5 "Military emergency" "ME"
+                4 4 "Military identification" "MI"
+                3 2 "Friendly target" "FOEFRI"
+                1 1 "FX" "FX"
+            elements
+                8 7 "ADSB Element Populated Bit" "ADSB"
+                6 5 "Surveillance Cluster Network Information" "SCN"
+                4 3 "Passive Acquisition Interface Information" "PAI"
+                2 2 "spare" "spare"
+                1 1 "FX" "FX"
+    030
+        title
+            Warning/Error Conditions and Target Classification
+        format
+            variable
+        length
+            1
+        octets
+            elements
+                8 2 "Warning/error condition value" "WEV"
+                1 1 "FX" "FX"
+    040
+        title
+             Measured Position in Polar Co-ordinates
+        format
+            fixed
+        length
+            4
+        elements
+            32 17 "Rho" "RHO"
+                scale
+                    1/256
+            16 1 "Theta" "THETA"
+                scale
+                    360/2**16
+    042
+        title
+            Calculated Position in Cartesian Co-ordinates
+        format
+            fixed
+        length
+            4
+        elements
+            32 17 "X" "X"
+                scale
+                    1/128
+                encode
+                    signed
+            16 1 "Y" "Y"
+                scale
+                    1/128
+                encode
+                    signed
+    050
+        title
+            Mode-2 Code in Octal Representation
+        format
+            fixed
+        length
+            2
+        elements
+            16 16 "Code validated" "V"
+            15 15 "Code garbled" "G"
+            14 14 "Code as derived/smoothed" "L"
+            13 13 "spare" "spare"
+            12 1 "Mode-2 reply in octal representation" "MD2"
+                encode
+                    octal
+    055
+        title
+            Mode-1 Code in Octal Representation
+        format
+            fixed
+        length
+            1
+        elements
+            8 8 "Code validated" "V"
+            7 7 "Code garbled" "G"
+            6 6 "Code as derived/smoothed" "L"
+            5 5 "A4" "A4"
+            4 4 "A2" "A2"
+            3 3 "A1" "A1"
+            2 2 "B2" "B2"
+            1 1 "B1" "B1"
+    060
+        title
+            Mode-2 Code Confidence Indicator
+        format
+            fixed
+        length
+            2
+        elements
+            16 13 "spare" "spare"
+            12 1 "Lo/High quality pulse Xi" "M2"
+    065
+        title
+            Mode-1 Code Confidence Indicator
+        format
+            fixed
+        length
+            1
+        elements
+            8 6 "spare" "spare"
+            5 1 "Lo/High quality pulse Xi" "M1"
+    070
+        title
+            Mode-3/A Code in Octal Representation
+        format
+            fixed
+        length
+            2
+        elements
+            16 13 "spare" "spare"
+            12 1 "Lo/High quality pulse Xi" "M3A"
+    090
+        title
+             Flight Level in Binary Representation
+        format
+            fixed
+        length
+            2
+        elements
+            16 16 "Code validated" "V"
+            15 15 "Code garbled" "G"
+            14 1 "Flight Level" "FL"
+                scale
+                    0.25
+    100
+        title
+            Mode-C Code and Code Confidence Indicator
+        format
+            fixed
+        length
+            4
+        elements
+            32 32 "Code validated" "V"
+            31 31 "Code garbled" "G"
+            30 29 "spare" "spare"
+            28 17 "Mode-C reply in Gray notation" "MDCg"
+            16 13 "spare" "spare"
+            12 1 "Lo/High quality pulse Xi" "M3A"
+    110
+        title
+            Height Measured by a 3D Radar
+        format
+            fixed
+        length
+            2
+        elements
+            16 15 "spare" "spare"
+            14 1 "3D Height" "3DH"
+                scale
+                    25
+                encode
+                    signed
+    120
+        title
+            Radial Doppler Speed
+        format
+            compound
+        subitems
+            CAL
+                title
+                    Calculated Doppler Speed
+                format
+                    fixed
+                length
+                    2
+                elements
+                    48 48 "Doppler is doubtful" "D"
+                    15 11 "spare" "spare"
+                    10 1 "Calculated Doppler Speed" "CAL"
+                        encode
+                            signed
+            RDS
+                title
+                    Raw Doppler Speed
+                format
+                    repetitive
+                length
+                    6
+                elements
+                    48 33 "Doppler Speed" "DOP"
+                    32 17 "Ambiguity Range" "AMB"
+                        scale
+                            0.25
+                    16 1 "Transmitter Frequency" "FRQ"
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            FX
+                title
+                    FX
+                format
+                    fixed
+    130
+        title
+            Radar Plot Characteristics
+        format
+            compound
+        subitems
+            SRL
+                title
+                    SSR Plot Runlength
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "SSR Plot Runlength" "SRL"
+                        scale
+                            360/2**13
+            SRR
+                title
+                    Number of Received Replies for (M)SSR
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "Number of received replies for (M)SSR" "SRR"
+            SAM
+                title
+                    Amplitude of (M)SSR Reply
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "Amplitude of (M)SSR reply" "SAM"
+                        encode
+                            signed
+            PRL
+                title
+                    Primary Plot Runlength
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "Primary Plot Runlength" "PRL"
+                        scale
+                            360/2**13
+            PAM
+                title
+                    Amplitude of Primary Plot
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "Amplitude of Primary Plot" "PAM"
+            RPD
+                title
+                    Difference in Range between PSR and SSR plot
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "Difference in Range between PSR and SSR plot" "RPD"
+                        scale
+                            1/256
+                        encode
+                            signed
+            APD
+                title
+                    Difference in Azimuth between PSR and SSR plot
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "Difference in Azimuth between PSR and SSR plot" "APD"
+                        scale
+                            360/2**14
+                        encode
+                            signed
+            FX
+                title
+                    FX
+                format
+                    fixed
+    140
+        title
+             Time of Day
+        format
+            fixed
+        length
+            3
+        elements
+            24 1 "Time of Day" "ToD"
+                scale
+                    1/128
+    161
+        title
+            Track Number
+        format
+            fixed
+        length
+            2
+        elements
+            16 13 "spare" "spare"
+            12 1 "Track Number" "TN"
+    170
+        title
+            Track Status
+        format
+            variable
+        octets
+            elements
+                8 8 "Confirmed/Init track" "CNF"
+                7 6 "Type of Sensor(s) maintaining Track" "RAD"
+                5 5 "Low confidence in plot to track assoc" "DOU"
+                4 4 "Horizontal man. sensed" "MAH"
+                3 2 "Climbing / Descending Mode" "CDM"
+                1 1 "FX" "FX"
+            elements
+                8 8 "Signal for End_of_Track" "TRE"
+                7 7 "Ghost target track" "GHO"
+                6 6 "Track maintained with track information from neighbouring Node B on the cluster" "SUP"
+                5 5 "Coordinate transformation mechanism" "TCC"
+                4 2 "spare" "spare"
+                1 1 "FX" "FX"
+    200
+        title
+            Calculated Track Velocity in Polar Co-ordinates
+        format
+            fixed
+        length
+            4
+        elements
+            32 17 "Calculated Ground Speed" "CGS"
+                scale
+                    2**-14
+            16 1 "Calculated Heading" "CHDG"
+                scale
+                    360/2**16
+    210
+        title
+            Track Quality
+        format
+            fixed
+        length
+            4
+        elements
+            32 25 "Standard Deviation on the horizontal axis" "STDx"
+                scale
+                    1/128
+            24 17 "Standard Deviation on the vertical axis" "STDy"
+                scale
+                    1/128
+            16 9 "Standard Deviation on the groundspeed" "STDv"
+                scale
+                    2**-14
+            8 1 "Standard Deviation on the heading" "STDh"
+                scale
+                    360/2**12
+    220
+        title
+            Aircraft Address
+        format
+            fixed
+        length
+            3
+        elements
+            24 1 "Aircraft Address" "ADR"
+    230
+        title
+            Communications/ACAS Capability and Flight Status
+        format
+            fixed
+        length
+            2
+        elements
+            16 14 "Communications capability" "COM"
+            13 11 "Flight Status" "STAT"
+            10 10 "SI/II Transponder Capability" "SI"
+            9 9 "spare" "spare"
+            8 8 "Mode-S Specific Service Capability" "MSSC"
+            7 7 "Altitude reporting capability" "ARC"
+            6 6 "Aircraft identification capability" "AIC"
+            5 5 "BDS 1,0 bit 16" "B1A"
+            4 1 "BDS 1,0 bits 37/40" "B1B"
+    240
+        title
+            Aircraft Identification
+        format
+            fixed
+        length
+            6
+        elements
+            48 1 "Aircraft identification" "ACID"
+                encode
+                    6bitchar
+    250
+        title
+            BDS Register DATA
+        format
+            repetitive
+        length
+            8
+        elements
+            64 9 "BDSDATA" "BDS"
+            8 5 "BDS1" "BDS1"
+            4 1 "BDS2" "BDS2"
+    260
+        title
+            ACAS Resolution Advisory Report
+        format
+            fixed
+        length
+            7
+        elements
+            56 1 "MB Data from BDS 3.0" "RA"
+uap
+    010
+    140
+    020
+    040
+    070
+    090
+    130
+    null
+    220
+    240
+    250
+    161
+    042
+    200
+    170
+    null
+    210
+    030
+    080
+    100
+    110
+    120
+    230
+    null
+    260
+    055
+    050
+    065
+    060
+    SP
+    RE
+    null
+    170
+    020
+    220
+    146
+    148
+    110
+    016
+    null008
+    271
+    132
+    250
+    260
+    400
+    295
+    null
+    null
+    null
+    null
+    null
+    RE
+    SP
+    null

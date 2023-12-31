@@ -1,0 +1,307 @@
+meta
+    category
+        11
+    edition
+        1.3
+ast
+    000
+        title
+            Message Type
+        format
+            fixed
+        length
+            1
+        elements
+            8 1 "Message Type" "MTYP"
+    010
+        title
+            Data Source Identification
+        format
+            fixed
+        length
+            2
+        elements
+            16 9 "System Area Code" "SAC"
+            8 1 "System Identification Code" "SIC"
+    020
+        title
+            Sector Number
+        format
+            fixed
+        elements
+            8 1 "Sector Number" "SEC"
+                scale
+                    360/2**8
+    030
+        title
+             Time of Day
+        format
+            fixed
+        length
+            3
+        elements
+            24 1 "Time of Day" "ToD"
+                scale
+                    1/128
+    041
+        title
+             Antenna Rotation Speed
+        format
+            fixed
+        length
+            2
+        elements
+            16 1 "Antenna Rotation Speed" "ARS"
+                scale
+                    1/128
+    050
+        title
+            System Configuration and Status
+        format
+            compound
+        subitems
+            COM
+                title
+                    Common Part
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 8 "Operational Release Status" "NOGO"
+                    7 7 "RDP Chain Selection" "RDPC"
+                    6 6 "Event to signal a reset/restart of the selected Radar Data Processor Chain" "RDPR"
+                    5 5 "Radar Data Processor Overload" "OVLRDP"
+                    4 4 "Transmission Subsystem Overload Status" "OVLXMT"
+                    3 3 "Monitoring System Connected Status" "MSC"
+                    2 2 "Time Source Validity" "TSV"
+                    1 1 "spare" "spare"
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            PSR
+                title
+                    Specific Status information for a PSR sensor
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 8 "Selected antenna" "ANT"
+                    7 6 "Channel A/B Selection" "CHAB"
+                    5 5 "Overload Condition" "OVL"
+                    4 4 "Monitoring System Connected Status" "MSC"
+                    3 1 "spare" "spare"
+            SSR
+                title
+                    Specific Status information for a SSR sensor
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 8 "Selected antenna" "ANT"
+                    7 6 "Channel A/B Selection" "CHAB"
+                    5 5 "Overload Condition" "OVL"
+                    4 4 "Monitoring System Connected Status" "MSC"
+                    3 1 "spare" "spare"
+            MDS
+                title
+                    Specific Status information for a Mode S sensor
+                format
+                    fixed
+                length
+                    2
+                elements
+                    16 16 "Selected antenna" "ANT"
+                    15 14 "Channel A/B Selection" "CHAB"
+                    13 13 "Overload Condition" "OVLSUR"
+                    12 12 "Monitoring System Connected Status" "MSC"
+                    11 11 "Channel A/B selection status Surveillance Co-ordination Function" "SCF"
+                    10 10 "Channel A/B selection status Data Link Function" "DLF"
+                    9 9 "Overload in Surveillance Co-ordination Function" "OVLSCF"
+                    8 8 "Overload in Data Link Function" "OVLDLF"
+                    7 1 "spare" "spare"
+            spare
+                title
+                    spare
+                format
+                    fixed
+
+            FX
+                title
+                    FX
+                format
+                    fixed
+    060
+        title
+            System Processing Mode
+        format
+            compound
+        subitems
+            COM
+                title
+                    Common Part
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 8 "spare" "spare"
+                    7 5 "Reduction Steps in use for an overload of the RDP" "REDRDP"
+                    4 2 "Reduction Steps in us of the Transmission subsystem" "REDXMT"
+                    1 1 "spare" "spare"
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            PSR
+                title
+                    Specific Processing Mode information for a PSR sensor
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 8 "Polarization in use" "POL"
+                    7 5 "Reduction Steps in use for an overload within PSR" "REDRADPSR"
+                    4 3 "Sensitivity Time Control Map in use" "STC"
+                    2 1 "spare" "spare"
+            SSR
+                title
+                    Specific Processing Mode information for a SSR sensor
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 6 "Reduction Steps in use" "REDRADSSR"
+                    5 1 "spare" "spare"
+            MDS
+                title
+                    Specific Processing Mode information for a Mode S Sensor
+                format
+                    fixed
+                length
+                    2
+                elements
+                    8 6 "Reduction Steps in use" "REDRADMDS"
+                    5 5 "Cluster State" "CLU"
+                    4 1 "spare" "spare"
+            spare
+                title
+                    spare
+                format
+                    fixed
+            FX
+                title
+                    FX
+                format
+                    fixed
+    070
+        title
+            Message Count Values
+        format
+            repetitive
+        length
+            2
+        elements
+                16 12 "Type of message counter" "TYP"
+                11 1 "Message counter" "CNT"
+    090
+        title
+            Collimation Error
+        format
+            fixed
+        length
+            2
+        elements
+            16 8 "Range Error" "RERR"
+                scale
+                    1/128
+                encode
+                    signed
+            8 1 "Azimuth Error" "AERR"
+                scale
+                    360/2**14
+                encode
+                    signed
+    100
+        title
+            Generic Polar Window
+        format
+            fixed
+        length
+            8
+        elements
+            64 49 "Rho start" "RHOS"
+                scale
+                    1/256
+            48 33 "Rho End" "RHOE"
+                scale
+                    1/256
+            32 17 "Theta Start" "THES"
+                scale
+                    360/2**16
+            16 1 "Theta End" "THEE"
+                scale
+                    360/2**16
+    110
+        title
+            Data Filter
+        format
+            fixed
+        length
+            1
+        elements
+            8 1 "Data Filter" "TYP"
+    120
+        title
+             3D-Position Of Data Source
+        format
+            fixed
+        length
+            8
+        elements
+            64 49 "Height in WGS84" "Height"
+            48 25 "Latitude WGS84" "Lat"
+                scale
+                    180/2**23
+                encode
+                    signed
+            32 1 "Longitude WGS84" "Lon"
+                scale
+                    180/2**23
+                encode
+                    signed
+
+uap
+    010
+    000
+    030
+    020
+    041
+    050
+    060
+    null
+    070
+    100
+    110
+    120
+    090
+    RE
+    SP
+    null
