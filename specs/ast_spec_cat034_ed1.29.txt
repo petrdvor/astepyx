@@ -28,6 +28,8 @@ ast
             Sector Number
         format
             fixed
+        length
+            1
         elements
             8 1 "Sector Number" "SEC"
                 scale
