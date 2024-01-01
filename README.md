@@ -1,7 +1,9 @@
 # ASTEPYX
 Python library with ASTERIX decoder and ASTERIX specifications. ASTEPYX is written in Python without external libraries.
 
-This decoder does not use xml specification files, instead uses dictionary structure of specification to provide fast online decoding.
+This decoder uses dictionary structure of specification to provide fast decoding.
+
+The objective of the ASTEPYX project is to fast decoding of ASTERIX in Python.
 
 ASTEPYX consists of two main classes:
 - **AsterixSpecification.py** ... conversion tool to create dict from ASTERIX specification in txt file.
@@ -67,9 +69,9 @@ Follow the structure of existing cats, there are examples of all types of items 
 - Name of an element is specified and expected but not used, e.g.: in line  ```16 1 "Roll Angle" "RAN"``` the text "Roll Angle" is not used in decoding but at least empty parenthesses are expected. Short name "RAN" is used during decoding. Simplest element spec would be: ```8 1 "" "A"```, content of bits from 8 to 1 will be named in results as "A".
 
 ## Motivation
-I wanted python decoder, which would be easy to use. I was successfuly using Vitor's "asterixed" decoder for several years. Unfortunately, the decoder uses ASTERIX specifications in xml format (from CroatiaControlLtd) and always iterates over many lines and is quite slow. The same is for wontor's decoder and other's. When such decoder is used for online ASTERIX decoding, for example, one Cat021 sensor loads the CPU of one of my virtual machines up to 30 %. I have actually never tested CroatiaControlLtd/asterix decoder which, I believe, is great but I prefer MIT licence over GPL licenses.
+I wanted python decoder, which would be easy to use. I was successfuly using Vitor's "asterixed" decoder for several years. Unfortunately, the decoder uses ASTERIX specifications in xml format (from CroatiaControlLtd) and always iterates over many lines and is quite slow. The same applies for wontor's decoder and other decoders. When such decoder is used for online ASTERIX decoding, for example, one Cat021 sensor loads the CPU of one of my virtual machines up to 30 %. I have actually never tested CroatiaControlLtd/asterix decoder which, I believe, is great but I prefer MIT licence over GPL licenses.
 
-I was considering using Zoran's ASTERIX specs format to create format that I need, but it is too complex to parse (at least for my purpose). There are too many nested options, parameters and notes that I don't find useful for the decoder.
+I was considering using Zoran's ASTERIX specs format to create format that I need, but it is too complex to parse (at least for my purpose). There are too many nested options, parameters and notes that I don't find useful for the decoder. Zoran's specs are in my opinion the best and most complete specification of ASTERIX in machine readable format.
 
 ## References
 ASTEPYX Decoder core is based on decoder written by Vitor Augusto Ferreira Santa Rita, 2014. Original repo here:
