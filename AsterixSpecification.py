@@ -213,4 +213,8 @@ class AsterixSpecification:
         return element
 
 if __name__ == '__main__':
+    aso = AsterixSpecification('specs/ast_spec_cat020_ed1.10.txt')
+    aso = AsterixSpecification('specs/ast_spec_cat021_ed2.6.txt')
     aso = AsterixSpecification('specs/ast_spec_cat034_ed1.29.txt')
+    aso = AsterixSpecification('specs/ast_spec_cat048_ed1.31.txt')
+    aso = AsterixSpecification('specs/ast_spec_cat062_ed1.20.txt')
