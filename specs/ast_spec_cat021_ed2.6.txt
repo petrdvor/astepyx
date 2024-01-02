@@ -309,12 +309,12 @@ ast
         elements
             48 25 "Latitude WGS84" "Lat"
                 scale
-                    0.180/2**23
+                    180/2**23
                 encode
                     signed
             24 1 "Longitude WGS84" "Lon"
                 scale
-                    0.180/2**23
+                    180/2**23
                 encode
                     signed
     131
