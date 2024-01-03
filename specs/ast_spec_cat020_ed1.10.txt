@@ -149,6 +149,8 @@ ast
             14 1 "Flight Level" "FL"
                 scale
                     0.25
+                encode
+                    signed
     100
         title
             Mode-C Code

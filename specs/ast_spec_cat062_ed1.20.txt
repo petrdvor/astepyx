@@ -460,7 +460,7 @@ ast
                 format
                     fixed
                 length
-                    1
+                    2
                 elements
                     16 1 "ADSC" "ADSC"
                         scale
