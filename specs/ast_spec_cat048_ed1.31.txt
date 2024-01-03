@@ -23,7 +23,7 @@ ast
             elements
                 8 6 "Type of detection" "TYP"
                 5 5 "Simulated target report" "SIM"
-                4 4 "RDP Chain 1/2" "CHN"
+                4 4 "RDP Chain 1/2" "RDP"
                 3 3 "Special Position Identification" "SPI"
                 2 2 "Report from field monitor" "RAB"
                 1 1 "FX" "FX"
@@ -124,7 +124,7 @@ ast
             2
         elements
             16 13 "spare" "spare"
-            12 1 "Lo/High quality pulse Xi" "M2"
+            12 1 "Lo/High quality pulse Xi" "M2Q"
     065
         title
             Mode-1 Code Confidence Indicator
@@ -134,7 +134,7 @@ ast
             1
         elements
             8 6 "spare" "spare"
-            5 1 "Lo/High quality pulse Xi" "M1"
+            5 1 "Lo/High quality pulse Xi" "M1Q"
     070
         title
             Mode-3/A Code in Octal Representation
@@ -171,7 +171,7 @@ ast
             30 29 "spare" "spare"
             28 17 "Mode-C reply in Gray notation" "MDCg"
             16 13 "spare" "spare"
-            12 1 "Lo/High quality pulse Xi" "M3A"
+            12 1 "Lo/High quality pulse Xi" "M3AQ"
     110
         title
             Height Measured by a 3D Radar
@@ -445,7 +445,7 @@ ast
         length
             6
         elements
-            48 1 "Aircraft identification" "ACID"
+            48 1 "Aircraft identification" "TId"
                 encode
                     6bitchar
     250
@@ -467,7 +467,7 @@ ast
         length
             7
         elements
-            56 1 "MB Data from BDS 3.0" "RA"
+            56 1 "MB Data from BDS 3.0" "RAR"
 uap
     010
     140

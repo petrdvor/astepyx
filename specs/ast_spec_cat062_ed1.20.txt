@@ -23,7 +23,7 @@ ast
         length
             1
         elements
-            8 1 "Service Identification" "SI"
+            8 1 "Service Identification" "SID"
     040
         title
             Track Number
@@ -32,7 +32,7 @@ ast
         length
             2
         elements
-            16 1 "Track Number" "TrNu"
+            16 1 "Track Number" "TN"
     060
         title
             Track Mode 3/A Code
@@ -44,7 +44,7 @@ ast
             16 15 "spare" "spare"
             14 14 "Change in Mode 3/A" "CH"
             13 13 "spare" "spare"
-            12 1 "Mode 3A on octal" "Mode3A"
+            12 1 "Mode 3A on octal" "M3A"
                 encode
                     octal
     070
@@ -55,7 +55,7 @@ ast
         length
             3
         elements
-            24 1 "Time of Track Information" "TOTI"
+            24 1 "Time of Track Information" "ToTI"
                 scale
                     1/128
     080
@@ -225,7 +225,7 @@ ast
                     2
                 elements
                     16 13 "spare" "spare"
-                    12 1 "Mode1 Code" "Mode1"
+                    12 1 "Mode1 Code" "MD1"
                         encode
                             octal
             TOS
@@ -269,7 +269,7 @@ ast
             2
         elements
             16 13 "spare" "spare"
-            12 1 "Mode2 Code" "Mode2"
+            12 1 "Mode2 Code" "MD2"
                 encode
                     octal
     130
@@ -384,7 +384,7 @@ ast
         elements
             56 55 "Callsign or registration downlinked" "STI"
             54 49 "spare" "spare"
-            48 1 "Callsign" "CS"
+            48 1 "Callsign" "TId"
                 encode
                     6bitchar
     270
@@ -572,7 +572,7 @@ ast
                 length
                     1
                 elements
-                    8 1 "MDA" "MDA"
+                    8 1 "M3A" "M3A"
                         scale
                             0.25
             MD4
@@ -867,7 +867,7 @@ ast
                 length
                     1
                 elements
-                    8 1 "IAR" "IAR"
+                    8 1 "IAS" "IAS"
                         scale
                             0.25
             MAC
@@ -878,7 +878,7 @@ ast
                 length
                     1
                 elements
-                    8 1 "MAC" "MAC"
+                    8 1 "MACH" "MACH"
                         scale
                             0.25
             BPS
@@ -993,7 +993,7 @@ ast
                     15 15 "Code garbled" "G"
                     14 14 "Code as derived/smoothed" "L"
                     13 13 "spare" "spare"
-                    12 1 "Last Measured Mode 3/A Code" "MDC"
+                    12 1 "Last Measured Mode 3/A Code" "M3A"
                         encode
                             octal
             TYP
@@ -1042,7 +1042,7 @@ ast
                 length
                     6
                 elements
-                    48 1 "Target Identification" "TID"
+                    48 1 "Target Identification" "TId"
                         encode
                             6bitchar
             MHG
@@ -1163,7 +1163,7 @@ ast
                     2
                 elements
                     16 14 "Communications capability" "COM"
-                    13 11  "Flight Status" "STAT"
+                    13 11 "Flight Status" "STAT"
                     10 9 "spare" "spare"
                     8 8 "Specific service capability" "SSC"
                     7 7 "Altitude reporting capability" "ARC"
@@ -1260,7 +1260,7 @@ ast
                 length
                     2
                 elements
-                    16 1 "Track Angle" "TrAn"
+                    16 1 "Track Angle" "TA"
                         scale
                             360/2**16
             GSP
@@ -1271,7 +1271,7 @@ ast
                 length
                     2
                 elements
-                    16 1 "Ground Speed" "GndSp"
+                    16 1 "Ground Speed" "GS"
                         scale
                             2**-14*3600
                         encode
@@ -1299,7 +1299,7 @@ ast
                     61 61 "Valid Turbulence" "VTurb"
                     60 57 "spare" "spare"
                     56 41 "Wind Speed" "WS"
-                    40 25 "Wind Direction" "WS"
+                    40 25 "Wind Direction" "WD"
                     24 9 "Temperature" "Temp"
                         scale
                             0.25
@@ -1346,7 +1346,7 @@ ast
                 length
                     2
                 elements
-                    16 1 "Geometric Altitude" "GAlt"
+                    16 1 "Geometric Altitude" "GA"
                         scale
                             6.25
                         encode
@@ -1389,7 +1389,7 @@ ast
                 length
                     2
                 elements
-                    16 1 "Mach Number" "MAC"
+                    16 1 "Mach Number" "MACH"
                         scale
                             0.008
             BPS

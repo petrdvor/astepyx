@@ -37,7 +37,7 @@ ast
         length
             1
         elements
-            8 1 "Service Identification" "SId"
+            8 1 "Service Identification" "SID"
     016
         title
             Service Management
@@ -102,7 +102,7 @@ ast
             2
         elements
             16 13 "spare" "spare"
-            12 1 "Mode 3/A" "Mode3A"
+            12 1 "Mode 3/A" "M3A"
                 encode
                     octal
     071
@@ -192,7 +192,7 @@ ast
         length
             3
         elements
-            24 1 "Target Address" "TAddr"
+            24 1 "Target Address" "ADR"
     090
         title
             Quality Indicators
@@ -920,7 +920,7 @@ ast
                 length
                     1
                 elements
-                    8 1 "ARA" "RAA"
+                    8 1 "ACAS RA Age" "RAA"
                         scale
                             0.1
             SCC

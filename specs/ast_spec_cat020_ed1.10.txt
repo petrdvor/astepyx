@@ -102,7 +102,7 @@ ast
             15 15 "Code garbled" "G"
             14 14 "Code as derived/smoothed" "L"
             13 13 "spare" "spare"
-            12 1 "Mode-2 reply in octal representation" "Mode2"
+            12 1 "Mode-2 reply in octal representation" "MD2"
                 encode
                     octal
     055
@@ -209,7 +209,7 @@ ast
             2
         elements
             16 13 "spare" "spare"
-            12 1 "Track Number" "TrkNb"
+            12 1 "Track Number" "TN"
     170
         title
             Track Status
@@ -272,7 +272,7 @@ ast
         length
             3
         elements
-            24 1 "Target Address" "TAddr"
+            24 1 "Target Address" "ADR"
     230
         title
             Communications/ACAS Capability and Flight Status
