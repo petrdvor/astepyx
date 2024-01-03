@@ -1,0 +1,917 @@
+meta
+    category
+        11
+    edition
+        1.3
+
+ast
+    000
+        title
+            Message Type
+        format
+            fixed
+        length
+            1
+        elements
+            8 1 "Message Type" "MsgTyp"
+    010
+        title
+            Data Source Identification
+        format
+            fixed
+        length
+            2
+        elements
+            16 9 "System Area Code" "SAC"
+            8 1 "System Identification Code" "SIC"
+    015
+        title
+            Service Identification
+        format
+            fixed
+        length
+            1
+        elements
+            8 1 "Service Identification" "SID"
+    041
+        title
+            Position in WGS-84 Co-ordinates
+        format
+            fixed
+        length
+            8
+        elements
+            64 33 "Latitude" "Lat"
+                scale
+                    180/2**31
+                encode
+                    signed
+            32 1 "Longitude" "Lon"
+                scale
+                    180/2**31
+                encode
+                    signed
+    042
+        title
+            Position in Cartesian Coordinates
+        format
+            fixed
+        length
+            4
+        elements
+            32 17 "X" "X"
+                encode
+                    signed
+            16 1 "Y" "Y"
+                encode
+                    signed
+    060
+        title
+            Mode-3/A Code in Octal Representation
+        format
+            fixed
+        length
+            2
+        elements
+            16 13 "spare" "spare"
+            12 1 "Mode-2 reply in octal representation" "M3A"
+                encode
+                    octal
+    090
+        title
+             Measured Flight Level
+        format
+            fixed
+        length
+            2
+        elements
+            16 1 "Measured Flight Level" "FL"
+                scale
+                    0.25
+                encode
+                    signed
+    092
+        title
+            Calculated Track Geometric Altitude
+        format
+            fixed
+        length
+            2
+        elements
+            16 1 "Calculated Track Geometric Altitude" "CTGA"
+                scale
+                    6.25
+                encode
+                    signed
+    093
+        title
+            Calculated Track Barometric Altitude
+        format
+            fixed
+        length
+            2
+        elements
+            16 16 "QNH Correction" "QNH"
+            15 1 "Calculated Track Barometric Altitude" "CTBA"
+                scale
+                    25
+                encode
+                    signed
+    140
+        title
+            Time Of Track Information
+        format
+            fixed
+        length
+            3
+        elements
+            24 1 "Time of Track Information" "ToTI"
+                scale
+                    1/128
+    161
+        title
+            Track Number
+        format
+            fixed
+        length
+            2
+        elements
+            16 16 "spare" "spare"
+            15 1 "Track Number" "TN"
+    170
+        title
+            Track Status
+        format
+            variable
+        octets
+            elements
+                8 8 "Multi/mono sensor track" "MON"
+                7 7 "GBS" "GBS"
+                6 6 "Most Reliable Height" "MRH"
+                5 3 "Source of calculated altitude" "SRC"
+                2 2 "Confirmed/Tentative track" "CNF"
+                1 1 "FX" "FX"
+            elements
+                8 8 "Actual/Simulated track" "SIM"
+                7 7 "TSE" "TSE"
+                6 6 "TSB" "TSB"
+                5 4 "FRIFOE" "FRIFOE"
+                3 3 "ME" "ME"
+                2 2 "MI" "MI"
+                1 1 "FX" "FX"
+            elements
+                8 8 "AMA" "AMA"
+                7 7 "SPI" "SPI"
+                6 6 "CST" "CST"
+                5 5 "FPC" "FPC"
+                4 4 "AFF" "AFF"
+                3 2 "spare" "spare"
+                1 1 "FX" "FX"
+            elements
+                8 8 "spare" "spare"
+                7 7 "PSR" "PSR"
+                6 6 "SSR" "SSR"
+                5 5 "MDS" "MDS"
+                4 4 "ADS" "ADS"
+                3 3 "SUC" "SUC"
+                2 2 "AAC" "AAC"
+                1 1 "FX" "FX"
+    202
+        title
+            Calculated Track Velocity (Cartesian)
+        format
+            fixed
+        length
+            4
+        elements
+            32 17 "Vx" "Vx"
+                scale
+                    0.25
+                encode
+                    signed
+            16 1 "Vy" "vy"
+                scale
+                    0.25
+                encode
+                    signed
+    210
+        title
+            Calculated Acceleration (Cartesian)
+        format
+            fixed
+        length
+            2
+        elements
+            16 9 "Ax" "Ax"
+                scale
+                    0.25
+                encode
+                    signed
+            8 1 "Ay" "Ay"
+                scale
+                    0.25
+                encode
+                    signed
+    215
+        title
+            Calculated Rate of Climb/Descent
+        format
+            fixed
+        length
+            2
+        elements
+            16 1 "Rate of Climb/Descent" "ROCD"
+                scale
+                    6.25
+                encode
+                    signed
+    245
+        title
+            Target Identification
+        format
+            fixed
+        length
+            2
+        elements
+            56 55 "Callsign or registration downlinked" "STI"
+            54 49 "spare" "spare"
+            48 1 "Callsign" "TId"
+                encode
+                    6bitchar
+    270
+        title
+            Target Size & Orientation
+        format
+            variable
+        octets
+            elements
+                8 2 "Length" "LEN"
+                1 1 "FX" "FX"
+            elements
+                8 2 "Orientation" "ORI"
+                    scale
+                        360/128
+                1 1 "FX" "FX"
+            elements
+                8 2 "Width" "WID"
+                1 1 "FX" "FX"
+    290
+        title
+            System Track Update Ages
+        format
+            compound
+        subitems
+            PSR
+                title
+                    PSR Age
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "PSR" "PSR"
+                        scale
+                            0.25
+            SSR
+                title
+                    SSR Age
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "SSR" "SSR"
+                        scale
+                            0.25
+            MDA
+                title
+                    Mode A Age
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "M3A" "M3A"
+                        scale
+                            0.25
+            MFL
+                title
+                    Measured Flight Level Age
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "MFL" "MFL"
+                        scale
+                            0.25
+            MDS
+                title
+                    Mode S Age
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "MDS" "MDS"
+                        scale
+                            0.25
+            ADS
+                title
+                    Age of the last ADS-C detection
+                format
+                    fixed
+                length
+                    2
+                elements
+                    16 1 "ADSC" "ADSC"
+                        scale
+                            0.25
+            ADB
+                title
+                    Age of the last ADS-B detection
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "ADSB" "ADSB"
+                        scale
+                            0.25
+            FX
+                title
+                    FX
+                format
+                    fixed
+            MD1
+                title
+                    Mode 1 Age
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "MD1" "MD1"
+                        scale
+                            0.25
+            MD2
+                title
+                    Mode 2 Age
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "MD2" "MD2"
+                        scale
+                            0.25
+            LOP
+                title
+                    Age of the last magnetic loop
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "LOP" "LOP"
+                        scale
+                            0.25
+            TRK
+                title
+                    Track Age
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "TRK" "TRK"
+                        scale
+                            0.25
+            MUL
+                title
+                    Multilateration Age
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "MLT" "MLT"
+                        scale
+                            0.25
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            FX
+                title
+                    FX
+                format
+                    fixed
+    300
+        title
+            Vehicle Fleet Identification
+        format
+            fixed
+        length
+            1
+        elements
+            8 1 "Vehicle Fleet Identification" "VFI"
+    310
+        title
+            Pre-programmed message
+        format
+            fixed
+        length
+            1
+        elements
+            8 8 "In Trouble" "TRB"
+            8 1 "Message towing/follow etc" "MSG"
+    380
+        title
+            Mode-S / ADS-B Related Data
+        format
+            compound
+        subitems
+            MB
+                title
+                    BDS Register DATA
+                format
+                    repetitive
+                length
+                    8
+                elements
+                    64 9 "BDSDATA" "BDS"
+                    8 5 "BDS1" "BDS1"
+                    4 1 "BDS2" "BDS2"
+            ADR
+                title
+                    Target Identification
+                format
+                    fixed
+                length
+                    6
+                elements
+                    48 1 "Target Identification" "TId"
+                        encode
+                            6bitchar
+            spare
+                title
+                    spare
+                format
+                    fixed
+            COM
+                title
+                    Communications/ACAS Capability and Flight Status reported by Mode-S
+                format
+                    fixed
+                length
+                    3
+                elements
+                    24 22 "Communications capability" "COM"
+                    21 18 "Flight Status" "STAT"
+                    17 17 "spare" "spare"
+                    16 16 "Specific service capability" "SSC"
+                    15 15 "Altitude reporting capability" "ARC"
+                    14 14 "Aircraft identification capability" "AIC"
+                    13 13 "BDS 1,0 bit 16" "B1A"
+                    12 9 "BDS 1,0 bits 37/40" "B1B"
+                    8 8 "ACAS operational" "AC"
+                    7 7 "Multiple navigational aids operating" "MN"
+                    6 6 "Differential correction" "DC"
+                    5 1 "spare" "spare"
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            FX
+                title
+                    FX
+                format
+                    fixed
+            ACT
+                title
+                    Aircraft Derived Aircraft Type
+                format
+                    fixed
+                length
+                    4
+                elements
+                    32 1 "Aircraft Type" "ATYP"
+                        encode
+                            8bitchar
+            EMC
+                title
+                    Emitter Category
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "Emitter Category" "ECAT"
+            spare
+                title
+                    spare
+                format
+                    fixed
+            ATC
+                title
+                    Available Technologies
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 8 "VDL" "VDL"
+                    7 7 "MDS" "MDS"
+                    6 6 "UAT" "UAT"
+                    5 1 "spare" "spare"
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            spare
+                title
+                    spare
+                format
+                    fixed
+            FX
+                title
+                    FX
+                format
+                    fixed
+    390
+        title
+            Flight Plan Related Data
+        format
+            compound
+        subitems
+            TAG
+                title
+                    FPPS Identification Tag
+                format
+                    fixed
+                length
+                    2
+                elements
+                    16 9 "SAC" "SAC"
+                    8 1 "SIC" "SIC"
+            CSN
+                title
+                    Callsign
+                format
+                    fixed
+                length
+                    7
+                elements
+                    56 1 "Callsign" "CS"
+                        encode
+                            8bitchar
+            IFI
+                title
+                    IFPS_FLIGHT_ID
+                format
+                    fixed
+                length
+                    4
+                elements
+                    32 31 "TYP" "TYP"
+                    30 28 "spare" "spare"
+                    27 1 "NBR" "NBR"
+            FCT
+                title
+                    Flight Category
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 7 "General / Operational Traffic" "GATOAT"
+                    6 5 "Flight Rules" "FR1FR2"
+                    4 3 "RVSM" "RVSM"
+                    2 2 "High Priority" "HPR"
+                    1 1 "spare" "spare"
+            TAC
+                title
+                    Aircraft Type
+                format
+                    fixed
+                length
+                    4
+                elements
+                    32 1 "Aircraft Type" "ATYP"
+                        encode
+                            8bitchar
+            WTC
+                title
+                    Wake Turbulence Category
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "WTC" "WTC"
+                        encode
+                            8bitchar
+            DEP
+                title
+                    Departure Airport
+                format
+                    fixed
+                length
+                    4
+                elements
+                    32 1 "ADEP" "ADEP"
+                        encode
+                            8bitchar
+            FX
+                title
+                    FX
+                format
+                    fixed
+            DST
+                title
+                    Destination Airport
+                format
+                    fixed
+                length
+                    4
+                elements
+                    32 1 "ADES" "ADES"
+                        encode
+                            8bitchar
+            RDS
+                title
+                    Runway designation
+                format
+                    fixed
+                length
+                    3
+                elements
+                    24 1 "Runway Designation" "RWY"
+                        encode
+                            8bitchar
+            CFL
+                title
+                    Current Cleared Flight Level
+                format
+                    fixed
+                length
+                    2
+                elements
+                    16 1 "CFL" "CFL"
+                        scale
+                            0.25
+            CTL
+                title
+                    Current Control Position
+                format
+                    fixed
+                length
+                    2
+                elements
+                    16 9 "Centre" "Cen"
+                    8 1 "Position" "Pos"
+            TOD
+                title
+                    Time of Departure / Arrival
+                format
+                    repetitive
+                length
+                    4
+                elements
+                        32 28 "TYP" "TYP"
+                        27 26 "DAY" "DAY"
+                        25 22 "spare" "spare"
+                        21 17 "Hour" "HOR"
+                        16 15 "spare" "spare"
+                        14 9 "Minute" "MIN"
+                        8 8 "AVS" "AVS"
+                        7 7 "spare" "spare"
+                        6 1 "SEC" "SEC"
+            AST
+                title
+                    Aircraft Stand
+                format
+                    fixed
+                length
+                    6
+                elements
+                    48 1 "Aircraft Stand" "AST"
+                        encode
+                            8bitchar
+            SST
+                title
+                    Stand Status
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 7 "Empty/Occupied/Unknown/Invalid" "EMP"
+                    6 5 "Availability" "AVL"
+                    4 1 "spare" "spare"
+            FX
+                title
+                    FX
+                format
+                    fixed
+    430
+        title
+            Phase of Flight
+        format
+            fixed
+        length
+            1
+        elements
+            8 1 "FLS" "FLS"
+    500
+        title
+            Estimated Accuracies
+        format
+            compound
+        subitems
+            APC
+                title
+                    Estimated Accuracy Of Track Position
+                format
+                    fixed
+                length
+                    2
+                elements
+                    16 9 "APCx" "APCx"
+                        scale
+                            0.25
+                    8 1 "APCy" "APCy"
+                        scale
+                            0.25
+            APW
+                title
+                    Estimated Accuracy Of Track Position (WGS-84)
+                format
+                    fixed
+                length
+                    4
+                elements
+                    32 17 "APW Lat" "APWlat"
+                        scale
+                            180/2**31
+                    16 1 "APW Lon" "APWlon"
+                        scale
+                            180/2**31
+            ATH
+                title
+                    Estimated Accuracy Of Height
+                format
+                    fixed
+                length
+                    2
+                elements
+                    16 1 "Estimated accuracy" "ATH"
+                        scale
+                            0.5
+            AVC
+                title
+                    Estimated Accuracy Of Track Velocity (Cartesian)
+                format
+                    fixed
+                length
+                    2
+                elements
+                    16 1 "AVCx" "AVCx"
+                        scale
+                            0.1
+                    8 1 "AVCy" "AVCy"
+                        scale
+                            0.1
+            ARC
+                title
+                    Estimated Accuracy Of Rate Of Climb/Descent
+                format
+                    fixed
+                length
+                    1
+                elements
+                    8 1 "Estimated Accuracy Of Rate Of Climb/Descent" "ARC"
+                        scale
+                            0.1
+            AAC
+                title
+                    Estimated Accuracy Of Acceleration (Cartesian)
+                format
+                    fixed
+                length
+                    2
+                elements
+                    16 9 "AAC (X-Component)" "AACx"
+                        scale
+                            0.01
+                    8 1 "AAC (Y-Component)" "AACy"
+                        scale
+                            0.01
+            spare
+                title
+                    spare
+                format
+                    fixed
+            FX
+                title
+                    FX
+                format
+                    fixed
+    600
+        title
+            Alert Messages
+        format
+            fixed
+        length
+            3
+        elements
+            24 24 "ACK" "ACK"
+            23 22 "SVR" "SVR"
+            21 17 "spare" "spare"
+            16 9 "Alert Type" "TYP"
+            8 1 "Alert Number" "NUM"
+    605
+        title
+            Tracks in Alert
+        format
+            repetitive
+        length
+            2
+        elements
+            16 13 "spare" "spare"
+            12 1 "Fusion Track Number" "TN"
+    610
+        title
+            Holdbar Status
+        format
+            repetitive
+        length
+            2
+        elements
+            16 13 "Bank Number" "BKN"
+            12 1 "Indicator" "Ii"
+uap
+    010
+    000
+    015
+    140
+    041
+    042
+    202
+    null
+    210
+    060
+    245
+    380
+    161
+    170
+    290
+    null
+    430
+    090
+    093
+    092
+    215
+    270
+    390
+    null
+    300
+    310
+    500
+    600
+    605
+    610
+    SP
+    null
+    RE
+    null
+    null
+    null
+    null
+    null
+    null
+    null
