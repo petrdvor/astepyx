@@ -12,7 +12,7 @@ ast
         length
             1
         elements
-            8 1 "Message Type" "MTYP"
+            8 1 "Message Type" "MsgTyp"
     010
         title
             Data Source Identification
@@ -31,7 +31,7 @@ ast
         length
             1
         elements
-            8 1 "Sector Number" "SEC"
+            8 1 "Sector Number" "Azi"
                 scale
                     360/2**8
     030
@@ -53,7 +53,7 @@ ast
         length
             2
         elements
-            16 1 "Antenna Rotation Speed" "ARS"
+            16 1 "Antenna Rotation Speed" "RotS"
                 scale
                     1/128
     050
@@ -96,10 +96,10 @@ ast
                 length
                     1
                 elements
-                    8 8 "Selected antenna" "ANT"
-                    7 6 "Channel A/B Selection" "CHAB"
-                    5 5 "Overload Condition" "OVL"
-                    4 4 "Monitoring System Connected Status" "MSC"
+                    8 8 "Selected antenna" "PSRANT"
+                    7 6 "Channel A/B Selection" "PSRCHAB"
+                    5 5 "Overload Condition" "PSROVL"
+                    4 4 "Monitoring System Connected Status" "PSRMSC"
                     3 1 "spare" "spare"
             SSR
                 title
@@ -109,10 +109,10 @@ ast
                 length
                     1
                 elements
-                    8 8 "Selected antenna" "ANT"
-                    7 6 "Channel A/B Selection" "CHAB"
-                    5 5 "Overload Condition" "OVL"
-                    4 4 "Monitoring System Connected Status" "MSC"
+                    8 8 "Selected antenna" "SSRANT"
+                    7 6 "Channel A/B Selection" "SSRCHAB"
+                    5 5 "Overload Condition" "SSROVL"
+                    4 4 "Monitoring System Connected Status" "SSRMSC"
                     3 1 "spare" "spare"
             MDS
                 title
@@ -122,14 +122,14 @@ ast
                 length
                     2
                 elements
-                    16 16 "Selected antenna" "ANT"
-                    15 14 "Channel A/B Selection" "CHAB"
-                    13 13 "Overload Condition" "OVLSUR"
-                    12 12 "Monitoring System Connected Status" "MSC"
-                    11 11 "Channel A/B selection status Surveillance Co-ordination Function" "SCF"
-                    10 10 "Channel A/B selection status Data Link Function" "DLF"
-                    9 9 "Overload in Surveillance Co-ordination Function" "OVLSCF"
-                    8 8 "Overload in Data Link Function" "OVLDLF"
+                    16 16 "Selected antenna" "MDSANT"
+                    15 14 "Channel A/B Selection" "MDSCHAB"
+                    13 13 "Overload Condition" "MDSOVLSUR"
+                    12 12 "Monitoring System Connected Status" "MDSMSC"
+                    11 11 "Channel A/B selection status Surveillance Co-ordination Function" "MDSSCF"
+                    10 10 "Channel A/B selection status Data Link Function" "MDSDLF"
+                    9 9 "Overload in Surveillance Co-ordination Function" "MDSOVLSCF"
+                    8 8 "Overload in Data Link Function" "MDSOVLDLF"
                     7 1 "spare" "spare"
             spare
                 title
@@ -179,7 +179,7 @@ ast
                     1
                 elements
                     8 8 "Polarization in use" "POL"
-                    7 5 "Reduction Steps in use for an overload within PSR" "REDRADPSR"
+                    7 5 "Reduction Steps in use for an overload within PSR" "PSRREDRAD"
                     4 3 "Sensitivity Time Control Map in use" "STC"
                     2 1 "spare" "spare"
             SSR
@@ -190,7 +190,7 @@ ast
                 length
                     1
                 elements
-                    8 6 "Reduction Steps in use" "REDRADSSR"
+                    8 6 "Reduction Steps in use" "SSRREDRAD"
                     5 1 "spare" "spare"
             MDS
                 title
@@ -200,7 +200,7 @@ ast
                 length
                     2
                 elements
-                    8 6 "Reduction Steps in use" "REDRADMDS"
+                    8 6 "Reduction Steps in use" "MDSREDRAD"
                     5 5 "Cluster State" "CLU"
                     4 1 "spare" "spare"
             spare
@@ -222,7 +222,7 @@ ast
             2
         elements
                 16 12 "Type of message counter" "TYP"
-                11 1 "Message counter" "CNT"
+                11 1 "counter" "CNT"
     090
         title
             Collimation Error
@@ -231,12 +231,12 @@ ast
         length
             2
         elements
-            16 8 "Range Error" "RERR"
+            16 8 "Range Error" "RngErr"
                 scale
                     1/128
                 encode
                     signed
-            8 1 "Azimuth Error" "AERR"
+            8 1 "Azimuth Error" "AziErr"
                 scale
                     360/2**14
                 encode
@@ -249,16 +249,16 @@ ast
         length
             8
         elements
-            64 49 "Rho start" "RHOS"
+            64 49 "Rho start" "RhoS"
                 scale
                     1/256
-            48 33 "Rho End" "RHOE"
+            48 33 "Rho End" "RhoE"
                 scale
                     1/256
-            32 17 "Theta Start" "THES"
+            32 17 "Theta Start" "ThetaS"
                 scale
                     360/2**16
-            16 1 "Theta End" "THEE"
+            16 1 "Theta End" "ThetaE"
                 scale
                     360/2**16
     110
