@@ -102,7 +102,7 @@ ast
             15 15 "Code garbled" "G"
             14 14 "Code as derived/smoothed" "L"
             13 13 "spare" "spare"
-            12 1 "Mode-2 reply in octal representation" "MD2"
+            12 1 "Mode-2 reply in octal representation" "Mode2"
                 encode
                     octal
     055
@@ -121,7 +121,7 @@ ast
             3 3 "A1" "A1"
             2 2 "B2" "B2"
             1 1 "B1" "B1"
-    050
+    070
         title
             Mode-3/A Code in Octal Representation
         format
@@ -162,7 +162,7 @@ ast
             30 29 "spare" "spare"
             28 17 "Mode-C reply in Gray notation" "MDCg"
             16 13 "spare" "spare"
-            12 1 "Lo/High quality pulse Xi" "M3A"
+            12 1 "Lo/High quality pulse Xi" "QXi"
     105
         title
             Geometric Height (WGS-84)
@@ -209,7 +209,7 @@ ast
             2
         elements
             16 13 "spare" "spare"
-            12 1 "Track Number" "TN"
+            12 1 "Track Number" "TrkNb"
     170
         title
             Track Status
@@ -272,7 +272,7 @@ ast
         length
             3
         elements
-            24 1 "Target Address" "ADR"
+            24 1 "Target Address" "TAddr"
     230
         title
             Communications/ACAS Capability and Flight Status
@@ -299,7 +299,7 @@ ast
         elements
             56 55 "STI" "STI"
             54 49 "spare" "spare"
-            48 1 "Callsign" "CS"
+            48 1 "Callsign" "TId"
                 encode
                     6bitchar
     250
@@ -321,7 +321,7 @@ ast
         length
             7
         elements
-            56 1 "MB Data from BDS 3.0" "RA"
+            56 1 "MB Data from BDS 3.0" "RAR"
     300
         title
             Vehicle Fleet Identification
@@ -349,7 +349,7 @@ ast
         length
             1
         elements
-                8 1 "TUx/RUx Contribution" "TURU"
+                8 1 "TUx/RUx Contribution" "RUx"
     500
         title
             Position Accuracy
