@@ -1805,9 +1805,13 @@ ast
                 16 2 "System Track Number" "STN"
                 1 1 "FX" "FX"
             elements
-                8 8 "Actual/Simulated track" "SIM"
-                7 7 "TSE" "TSE"
-                6 6 "TSB" "TSB"
+                24 17 "System Unit Identification" "SUI"
+                16 2 "System Track Number" "STN"
+                1 1 "FX" "FX"
+            elements
+                24 17 "System Unit Identification" "SUI"
+                16 2 "System Track Number" "STN"
+                1 1 "FX" "FX"
 
 uap
     010
