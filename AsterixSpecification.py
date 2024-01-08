@@ -114,7 +114,7 @@ class AsterixSpecification:
                     item['octets'] = self.parse_octets(subitem_val)
             if subitem_key == 'subitems':
                 item['subitems'] = self.parse_subitems(subitem_val)
-        # pprint(item, sort_dicts=False)
+
         return item
 
     def parse_subitems(self, subitems_raw):
@@ -152,6 +152,7 @@ class AsterixSpecification:
         Returns:
             _type_: _description_
         """
+
         if args:
             length = args[0]
         else:
@@ -161,14 +162,21 @@ class AsterixSpecification:
             octets = [octets]
         octets_parsed = []
         for octet in octets:
+            # find out how long is each part of variable items
+            # typically it's one octet extended by another octets one by one
+            # but in few cases it varies
+            if isinstance(octet['elements'][0], dict):
+                actual_length = list(octet['elements'][0].keys())[0].split(' ')[0]
+            else:
+                actual_length = octet['elements'][0].split(' ')[0]
+            # print(actual_length)
+            actual_length = int(int(actual_length)/8)
             elements = self.parse_elements(octet['elements'])
-
-            octets_parsed.append({'elements':elements, 'length':length})
+            octets_parsed.append({'elements':elements, 'length':actual_length})
         return octets_parsed
 
     def parse_elements(self, elements):
         elements_decoded = []
-
         if isinstance(elements, list):
             for el in elements:
                 elements_decoded.append(self.parse_element(el))
@@ -218,3 +226,6 @@ if __name__ == '__main__':
     aso = AsterixSpecification('specs/ast_spec_cat034_ed1.29.txt')
     aso = AsterixSpecification('specs/ast_spec_cat048_ed1.31.txt')
     aso = AsterixSpecification('specs/ast_spec_cat062_ed1.20.txt')
+    aso = AsterixSpecification('specs/ast_spec_cat011_ed1.3.txt')
+    aso = AsterixSpecification('specs/ast_spec_cat020_ed1.10_reed1.4.txt')
+    aso = AsterixSpecification('specs/ast_spec_cat021_ed2.6_reed1.5.txt')
