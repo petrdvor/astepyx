@@ -46,6 +46,8 @@ class AsterixDecoder:
             result = self._decode_compound(item_id, item)
         elif format == 'repetitive':
             result = self._decode_repetitive(item_id, item)
+        elif format == 'explicit':
+            result = self._decode_explicit(item_id, item)
         elif format == 'explicit_re':
             result = self._decode_explicit_re(item_id, item)
 
@@ -131,6 +133,19 @@ class AsterixDecoder:
         for i in range(rep):
             r = self._decode_fixed(item_id, item)
             results[i + 1] = r
+        result = {item['id']:results}
+        return result
+
+    def _decode_explicit(self, item_id, item: dict):
+        # print('decoding sp')
+        results = {}  # each repetitive item is numbered
+
+        length = self.bytes[self.p]
+        self.p += 1
+
+        for i in item['subitems']:
+            r = self._decode_item(item_id, i)
+            results.update(r)
         return results
 
     def _decode_explicit_re(self, item_id, item:dict):
