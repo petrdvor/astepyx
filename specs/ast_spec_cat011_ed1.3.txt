@@ -114,7 +114,7 @@ ast
             16 16 "QNH Correction" "QNH"
             15 1 "Calculated Track Barometric Altitude" "CTBA"
                 scale
-                    25
+                    0.25
                 encode
                     signed
     140
@@ -231,7 +231,7 @@ ast
         format
             fixed
         length
-            2
+            7
         elements
             56 55 "Callsign or registration downlinked" "STI"
             54 49 "spare" "spare"
@@ -451,15 +451,13 @@ ast
                     4 1 "BDS2" "BDS2"
             ADR
                 title
-                    Target Identification
+                    Aircraft Address
                 format
                     fixed
                 length
-                    6
+                    3
                 elements
-                    48 1 "Target Identification" "TId"
-                        encode
-                            6bitchar
+                    24 1 "Aircraft Address" "ADR"
             spare
                 title
                     spare

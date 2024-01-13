@@ -41,7 +41,8 @@ ast
         length
             2
         elements
-            16 15 "spare" "spare"
+            16 16 "V" "V"
+            15 15 "G" "G"
             14 14 "Change in Mode 3/A" "CH"
             13 13 "spare" "spare"
             12 1 "Mode 3A on octal" "M3A"
