@@ -1,0 +1,94 @@
+meta
+    category
+        65
+    edition
+        1.6
+ast
+    000
+        title
+            Message Type
+        format
+            fixed
+        length
+            1
+        elements
+            8 1 "Message Type" "MsgTyp"
+    010
+        title
+            Data Source Identification
+        format
+            fixed
+        length
+            2
+        elements
+            16 9 "System Area Code" "SAC"
+            8 1 "System Identification Code" "SIC"
+    015
+        title
+            Service Identification
+        format
+            fixed
+        length
+            1
+        elements
+            8 1 "Service Identification" "SID"
+    020
+        title
+            Batch Number
+        format
+            fixed
+        length
+            1
+        elements
+            8 1 "Batch Number" "BTN"
+    030
+        title
+             Time of Message
+        format
+            fixed
+        length
+            3
+        elements
+            24 1 "Time of Message" "ToD"
+                scale
+                    1/128
+    040
+        title
+             SDPS Configuration And Status
+        format
+            fixed
+        length
+            1
+        elements
+            8 7 "Operational / degraded / not Connected" "NOGO"
+            6 6 "Overload" "OVL"
+            5 5 "Time Source Invalid" "TSV"
+            4 3 "Processing System Status" "PSS"
+            2 2 "Track renumbering Indication" "STTN"
+            1 1 "spare" "spare"
+    050
+        title
+             Service Status Report
+        format
+            fixed
+        length
+            1
+        elements
+            8 1 "Service Status Report" "RPT"
+uap
+    010
+    000
+    015
+    030
+    020
+    040
+    050
+    null
+    null
+    null
+    null
+    null
+    null
+    RE
+    SP
+    null
