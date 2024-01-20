@@ -1,0 +1,172 @@
+meta
+    category
+        63
+    edition
+        1.6
+ast
+    010
+        title
+            Data Source Identification
+        format
+            fixed
+        length
+            2
+        elements
+            16 9 "System Area Code" "SAC"
+            8 1 "System Identification Code" "SIC"
+    015
+        title
+            Service Identification
+        format
+            fixed
+        length
+            1
+        elements
+            8 1 "Service Identification" "SID"
+    030
+        title
+             Time of Message
+        format
+            fixed
+        length
+            3
+        elements
+            24 1 "Time of Message" "ToD"
+                scale
+                    1/128
+    050
+        title
+             Sensor Identifier
+        format
+            fixed
+        length
+            2
+        elements
+            16 9 "System Area Code" "SAC"
+            8 1 "System Identification Code" "SIC"
+    60
+        title
+            Sensor Configuration and Status
+        format
+            variable
+        octets
+            elements
+                8 7 "Connected - oper/degr/init" "CON"
+                6 6 "PSR GO/NOGO" "PSR"
+                5 5 "SSR GO/NOGO" "SSR"
+                4 4 "MDS GO/NOGO" "MDS"
+                3 3 "ADS GO/NOGO" "ADS"
+                2 2 "MLT GO/NOGO" "MLT"
+                1 1 "FX" "FX"
+            elements
+                8 8 "Oper release Status" "OPS"
+                7 7 "Data Processor Overload" "ODP"
+                6 6 "Transmission Subsystem Overload" "OXT"
+                5 5 "Monitorin System Connected Status" "MSC"
+                4 4 "Time Source Validity" "TSV"
+                3 3 "No Plot Warning" "NPW"
+                2 2 "spare" "spare"
+                1 1 "FX" "FX"
+    070
+        title
+            Time Stamping Bias
+        format
+            fixed
+        length
+            2
+        elements
+            16 1 "Time Stamping Bias" "TSB"
+                encode
+                    signed
+    080
+        title
+            SSR / Mode S Range Gain and Bias
+        format
+            fixed
+        length
+            4
+        elements
+            32 17 "Mode S Range Gain" "SRG"
+                encode
+                    signed
+                scale
+                    1E-5
+            16 1 "Mode S Range Bias" "SRB"
+                encode
+                    signed
+                scale
+                    1/128
+    081
+        title
+            SSR / Mode S Azimuth Bias
+        format
+            fixed
+        length
+            2
+        elements
+            16 1 "SSR/Mode S Azimuth Bias" "SAB"
+                encode
+                    signed
+                scale
+                    360/2**16
+    090
+        title
+            PSR Range Gain and Bias
+        format
+            fixed
+        length
+            4
+        elements
+            32 17 PSR Range Gain" "PRG"
+                encode
+                    signed
+                scale
+                    1E-5
+            16 1 "PSR Range Bias" "PRB"
+                encode
+                    signed
+                scale
+                    1/128
+    091
+        title
+            PSR Azimuth Bias
+        format
+            fixed
+        length
+            2
+        elements
+            16 1 "PSR Azimuth Bias" "PAB"
+                encode
+                    signed
+                scale
+                    360/2**16
+    092
+        title
+            PSR Elevation Bias
+        format
+            fixed
+        length
+            2
+        elements
+            16 1 "PSR Elevation Bias" "PEB"
+                encode
+                    signed
+                scale
+                    360/2**16
+uap
+    010
+    015
+    030
+    050
+    060
+    070
+    080
+    null
+    081
+    090
+    091
+    092
+    null
+    RE
+    SP
+    null
