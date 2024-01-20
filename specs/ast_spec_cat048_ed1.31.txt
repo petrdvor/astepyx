@@ -143,8 +143,13 @@ ast
         length
             2
         elements
-            16 13 "spare" "spare"
-            12 1 "Lo/High quality pulse Xi" "M3A"
+            16 16 "V" "V"
+            15 15 "G" "G"
+            14 14 "L" "L"
+            13 13 "spare" "spare"
+            12 1 "Mode 3/A" "M3A"
+                encode
+                    octal
     090
         title
              Flight Level in Binary Representation

@@ -198,7 +198,7 @@ ast
                 format
                     fixed
                 length
-                    2
+                    1
                 elements
                     8 6 "Reduction Steps in use" "MDSREDRAD"
                     5 5 "Cluster State" "CLU"

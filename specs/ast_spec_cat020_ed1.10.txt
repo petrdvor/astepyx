@@ -243,7 +243,7 @@ ast
                     0.25
                 encode
                     signed
-            16 1 "Vy" "vy"
+            16 1 "Vy" "Vy"
                 scale
                     0.25
                 encode
@@ -375,6 +375,8 @@ ast
                     16 1 "DOPxy" "DOPxy"
                         scale
                             0.25
+                        encode
+                            signed
             SDP
                 title
                     Standard Deviation of Position
@@ -392,6 +394,8 @@ ast
                     16 1 "STDxy" "STDxy"
                         scale
                             0.25
+                        encode
+                            signed
             SDH
                 title
                     Standard Deviation of Geometric Height (WGS 84)
@@ -432,42 +436,34 @@ ast
 
 uap
     010
+    020
+    140
+    041
+    042
+    161
+    170
     null
-    015
     070
-    105
+    202
+    090
     100
-    185
-    null
-    210
-    060
-    245
-    380
-    040
-    080
-    290
-    null
-    200
-    295
-    136
-    130
-    135
     220
-    390
-    null
-    270
-    300
+    245
     110
-    120
-    510
+    null
+    105
+    210
+    300
+    310
     500
-    340
+    400
+    250
     null
-    null
-    null
-    null
-    null
-    null
+    230
+    260
+    030
+    055
+    050
     RE
     SP
     null
