@@ -44,7 +44,7 @@ ast
         elements
             16 9 "System Area Code" "SAC"
             8 1 "System Identification Code" "SIC"
-    60
+    060
         title
             Sensor Configuration and Status
         format
