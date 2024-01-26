@@ -117,7 +117,7 @@ ast
         length
             4
         elements
-            32 17 PSR Range Gain" "PRG"
+            32 17 "PSR Range Gain" "PRG"
                 encode
                     signed
                 scale
